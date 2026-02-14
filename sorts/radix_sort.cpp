@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<ranges>
 
 template<class T>
 std::vector<T> count_sort(const std::vector<T>& v);
@@ -55,8 +56,8 @@ size_t calc_iters(T n) {
 
 template<class T>
 std::vector<T> radix_sort(const std::vector<T>& v) {
-    auto min = *min_element(v.begin(), v.end());
-    auto max = *max_element(v.begin(), v.end());
+    auto min = std::ranges::min_element(v);
+    auto max = std::ranges::max_element(v);
     size_t bit = 0;
     auto iters = calc_iters(max - min);
     auto res = v;
