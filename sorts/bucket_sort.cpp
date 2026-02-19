@@ -26,13 +26,13 @@ auto main() -> signed {
 
 void sort_for_small(std::vector<double>& v) {
     for (size_t i = 0; i < v.size(); ++i) {
-        auto el = v[i];
+        auto pos = i;
         auto max = -1e9;
         for (size_t j = i + 1; j < v.size(); ++j) {
-            el = std::min(el, v[j]);
+            if (v[pos] > v[j]) pos = j;
             max = std::max(max, v[j]);
         }
-        v[i] = el;
+        std::swap(v[i], v[pos]);
         if (max == v[i]) break;
     }
 }
