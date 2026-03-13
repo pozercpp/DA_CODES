@@ -91,6 +91,7 @@ private:
         } else if (val > nd->val) {
             nd->right = del(nd->right, val);
         } else {
+            --sz;
             auto left = nd->left;
             auto right = nd->right;
             delete nd;
